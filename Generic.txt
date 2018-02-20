@@ -1,0 +1,237 @@
+package sample2;
+
+public class Generics {
+
+	public static void main(String[] args) {
+		PreGenericBox obj1 = new PreGenericBox();
+		GenericBox<Integer> obj = new GenericBox<Integer>();
+		GenericBox<String> obj2 = new GenericBox<String>();
+
+		GenericBox<Number> numBox = new GenericBox<>();//using diamond "<>"
+
+
+		obj1.set("nagaraj"); 
+		Object preGeneric = (Integer)obj1.get();
+		System.out.println(preGeneric);
+
+
+		/*		obj2.set("megha");
+		String generic = obj2.get();
+		System.out.println(generic);*/
+
+		numBox.set(10.2);
+		Number generic = numBox.get();
+		System.out.println(generic);
+
+		numBox.set(50.2);
+		Number generic1 = numBox.get();
+		System.out.println(generic1);
+
+		obj2.set("abc");
+		obj2.setting(50);
+		System.out.println(obj2.get());
+
+		numBox.boxtest(numBox);
+
+
+	}
+
+}
+
+class GenericBox<T> {
+	//T is type:-all type
+	private T num;
+
+	public void set(T num1) {
+		this.num = num1;
+	}
+
+	public T get() {
+		return num;
+	}
+	public <U extends Number> void setting(U number)
+	{
+		U number1 = number;
+		System.out.println("extended number is"+number1);
+	}
+
+	public static void boxtest(GenericBox<Number> l)
+	{
+		/*GenericBox<Number> k;
+		k=l;*/
+		System.out.println("boxtest"+l.get());
+	}
+
+}
+
+class PreGenericBox {
+	private Object object;
+
+	public void set(Object object1) {
+		this.object = object1;
+	}
+
+	public Object get() {
+		return object;
+	}
+
+}
+///////////genericBox//////////
+
+
+package sample2;
+
+public class GenericsBox<T> {
+	//T is type:-all type
+	private T num;
+
+	public void set(T num1) {
+		this.num = num1;
+	}
+
+	public T get() {
+		return num;
+	}
+	public <U extends Number> void setting(U number)
+	{
+		U number1 = number;
+		System.out.println("extended number is"+number1);
+	}
+
+	public static void boxtest(GenericBox<Number> l)
+	{
+		/*GenericBox<Number> k;
+		k=l;*/
+		System.out.println("boxtest"+l.get());
+	}
+	public boolean equals(Object obj)
+	{
+		boolean retval = false;
+		if(obj instanceof GenericsBox)
+		{
+			if(this.get().equals(((GenericsBox) obj).get()))
+				return retval = true;
+			
+		}
+			return retval;
+	}
+
+}
+/////////nxtprrm/////
+
+package sample2;
+
+public class GenericsMultiType {
+	
+	public static <K,V> boolean compare(Pair<K,V> obj3,Pair<K,V> obj4) {
+		return obj3.getvalue().equals(obj4.getvalue()) && obj3.getKey().equals(obj4.getKey());
+	
+	}
+	 
+	public static void main(String[] args) {
+		
+		GenericsBox<String> genericbox = new GenericsBox<>();
+		genericbox.set("abc");
+		Pair<Integer, GenericsBox<String>> obj3 = new Pair<>(10,genericbox);
+		
+		GenericsBox<String> genericbox1 = new GenericsBox<>();
+		genericbox1.set("ab");
+		Pair<Integer, GenericsBox<String>> obj4 = new Pair<>(10,genericbox1);
+		
+		/*Pair<Integer,String> obj1 = new Pair<>(1,"megha");
+		Pair<Integer,String> obj2 = new Pair<>(1,"megha");
+		*/
+		
+		
+		/*obj1.setkey(1);
+		obj1.setvalue("nagaraj");*/
+		/*
+		Integer keyoutput = obj1.getKey();
+		System.out.println(keyoutput);
+		
+		String valueoutput = obj1.getvalue();
+		System.out.println(valueoutput);*/
+		
+		//System.out.println(GenericsMultiType.compare(obj1, obj2));
+		System.out.println(GenericsMultiType.compare(obj3, obj4));
+		
+		/*GenericsBox<String> obj5 = new GenericsBox<>();
+		GenericsBox<String> obj6 = new GenericsBox<>();
+		obj5.set("ab");
+		obj6.set("abc");
+		System.out.println(obj6.equals(obj5));
+*/
+	}
+
+}
+class Pair<K,V>{
+	private K key;
+	private V value;
+	
+	public Pair(K key,V value)
+	{
+		this.key = key;
+		this.value= value;
+		
+	}
+	public void setkey(K key) {
+		this.key = key;
+	}
+	public void setvalue(V value) {
+		this.value = value;
+	}
+	public K getKey() {return key;}
+	public V getvalue() {return value;}
+	
+	
+}
+//////////list collection//////
+
+
+package Collection;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Listcollection {
+	
+	static List<Integer> CreateIntList()
+	{
+	List<Integer> IntList = Arrays.asList(1,2,3,1,1);
+	return IntList;
+	}
+	
+	
+	static List<String> CreateStrList()
+	{
+		 List<String> StrList = Arrays.asList("a","b","c");
+		 return StrList;
+	}
+	
+	public static Set<Integer> getIntSet(List<Integer> IntegerList)
+	{
+		Set<Integer> intSet = new HashSet<Integer>();
+		intSet.addAll(IntegerList);
+		return intSet;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Integer list values");
+		for(Integer i:CreateIntList()) {
+			System.out.println("I="+i);
+		}
+	System.out.println("string list"+Listcollection.CreateStrList());
+		
+	System.out.println("Integer list"+Listcollection.CreateIntList());
+	
+	Listcollection.getIntSet(Listcollection.CreateIntList());
+	
+	//Iterator<Integer> 
+	//CreateIntList().for(x) -> System.out.println("Integer list values"+x);//in java 8
+	}
+
+}

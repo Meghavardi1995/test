@@ -1,0 +1,2 @@
+java document by oracle
+https:\\docs.oracle.com\javase\tutorial\java\index.html

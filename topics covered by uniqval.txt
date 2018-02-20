@@ -1,0 +1,60 @@
+classes started from:16 oct 2017
+
+topic 1: difference between 1 tier and 3 tier architecture 
+classes held by:Mr.Ananth
+
+topic 2: XAMPP
+classes held by:Mr.Ananth
+OS:windows 8.1
+application used: XAMPP
+description:In XAMPP apache,MySQL database,Tomcat are used and understood clearly.
+
+topic 3: NodeJS
+classes held by:Mr.Raghavendra
+OS:windows 8.1
+applications used:atom editor,npm(node package manager),express framework,Git hub,Heroku. 
+description:nodeJS server framework,atom editor for writing code,
+npm aids in package installation and version management,
+git hub where developers store their projects and it is version control system,
+heroku is cloud platform ,deployment can be done.
+
+topic 4: testlink
+classes held by:Mr.Ananth
+OS:windows 8.1
+application used: testlink
+description:test link is a test management tool,
+projects are tested and reported
+
+topic 5: mantisbt
+classes held by:Mr.Ananth
+OS:windows 8.1
+application used: mantisbt
+description:mantisbt is a bug tracker,managing of projects and findings bugs,defects takes place.
+
+topic 6: JIRA
+classes held by:Mr.Raja Simha
+OS:windows 8.1
+application used: JIRA
+description:JIRA is a defect tracking tool,In that agile methodology is used.
+agile methodology have SCRUM process,in scrum we use sprint.
+
+topic 7: Database
+classes held by:Mr.Aditya 
+OS:windows 8.1
+application used: XAMPP
+description:In XAMPP apache,MySQL database is used, In SQL 2 types of schema 
+*DDL- Data Definition Language eg:Create,Alter,Drop 
+*DML- Data Manipulation Language eg:select,insert,update,delete,
+SQL constraints,JOINS are used.
+
+above mentioned topics are covered within the date 31 OCT 2017, and I am enable to do it alone without any fear.
+
+ 
+
+
+
+
+
+
+
+

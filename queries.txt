@@ -1,0 +1,164 @@
+CREATE DATABASE library;
+
+CREATE TABLE Books(
+    id int,
+    name varchar(50),
+    category varchar(50),
+    author varchar(50),
+    returndate date
+   );
+   
+   CREATE TABLE Employee(
+    id int,
+    name varchar(50),
+    roll varchar(50),
+    salary int,
+    joindate date
+   );
+   
+  CREATE TABLE Users(
+    id int,
+    name varchar(50),
+    phone varchar(50),
+    expiry date,
+    joining date
+   
+   
+ );
+ 
+ CREATE TABLE Activity(
+    bookid varchar(50),
+    userid varchar(50),
+    issuedate date,
+    returndate date   
+ );
+ 
+ ALTER TABLE books CHANGE id bookid int;
+ ALTER TABLE users CHANGE id userid int;
+ 
+ DROP TABLE activity;
+ 
+ ALTER TABLE employee CHANGE id empid int;
+ 
+ INSERT INTO employee(
+    id,name,roll,salary,joindate) VALUES (1,'megha','transaction maintain',40000,'2017-10-16');
+	
+UPDATE books SET bookid=1,name='physics',category='puscience',author='megha',returndate='2017-10-30' WHERE bookid=1;
+
+two rows at a time
+INSERT INTO books(
+    bookid,
+    name,
+    category,
+    author,
+    returndate
+    ) VALUES (300,'chemistry','science','meghavardi','2017-10-31'),
+    
+    (400,'physics','science','nagraj','2017-10-30');
+	
+INSERT INTO activity(
+    bookid,
+    userid,
+    issuedate,
+    returndate
+    ) VALUES (300,1,'2017-10-15','2017-10-31'),
+    
+    (400,2,'2017-10-16','2017-10-30'),
+    (500,3,'2017-10-17','2017-11-29');
+	
+SELECT * FROM student1 WHERE id%2=0 //to print even id
+
+SELECT student1.id,student2.id// if in 2 tables, want to print firstname from table1 and last name from table2 
+FROM student1
+JOIN student2
+WHERE student1.id=student2.id;	
+    
+select * from activity;
+select issuedate from activity where bookid=400; // to print issuedate of bookid=400 
+select * from activity where bookid=400;
+select COUNT(*) from activity; 
+(select DISTINCT COLUMN1,COLUMN2 from activity;) 
+select DISTINCT userid,bookid from activity; select DISTINCT bookid,userid from activity;
+NESTED QUERY
+select COUNT(*) from (select DISTINCT(bookid) from activity)aa;  OR select COUNT(*) from (select DISTINCT bookid from activity)aa;//'aa' is alias name
+select COUNT(*) from (select DISTINCT bookid,userid from activity)aa;//query within query is called nested query
+
+select * from books where name like 'physics%';
+select * from books where name like '%physics';
+select * from books where name like 'p%';
+
+select * from books where bookid!=2;
+select * from books where bookid>2; OR select * from books where bookid max 2;
+select * from books where bookid=2;
+select * from books where bookid<2;
+select * from books where bookid<>2 OR select * from books where bookid!=2;  //works same
+select * from books where bookid ^2;not
+select * from activity where bookid & userid;
+select * from activity where bookid=300 AND userid=1; OR select * from activity where bookid=300 & userid=1;(will not work becs '&' is not a expression)//select * from activity where bookid=300 && userid=1;(it will work)
+select * from activity where bookid=300 OR userid=1; OR select * from activity where bookid=300 | userid=1;(will not work becs '|' is not a expression)//select * from activity where bookid=300 || userid=1;(it will work)
+SELECT * from activity order by userid;//default asending so no use of mentioning asec
+SELECT * from books where bookid=300 order by name;
+SELECT * from activity order by userid DESC;
+SELECT bookid from activity order by userid DESC;
+select SUM(bookid) from books; 
+select MAX(bookid) from books; 
+
+joins
+*join clause is used to combine rows from 2 or more table 
+types of join
+*inner join or equi join
+*left join
+*right join
+*full join
+
+select books.bookid,name,activity.bookid,issuedate
+from books
+join activity
+on books.bookid=activity.bookid;
+
+select books.bookid,name,activity.bookid,issuedate
+from books
+left outer join activity
+on books.bookid=activity.bookid;
+
+select books.bookid,name,activity.bookid,issuedate				
+from books
+right outer join activity
+on books.bookid=activity.bookid;                           or   select books.bookid,name,activity.bookid,issuedate
+																from books
+																right join activity
+																on books.bookid=activity.bookid;
+
+select books.bookid,name,activity.bookid,issuedate
+from books
+right outer join activity
+on books.bookid=activity.bookid //dont put semicolon here
+UNION
+select books.bookid,name,activity.bookid,issuedate
+from books
+left outer join activity
+on books.bookid=activity.bookid;
+
+alter table books 
+ADD
+UNIQUE(bookid); //unique key, if table contains same bookid they unique will not assign so before assigning we have to delete similar bookid data
+
+ALTER TABLE student2 add FOREIGN KEY(id) REFERENCES student1(id);
+
+delete from books where bookid=401;
+
+show index from activity;//when 2 or 3 times unique key is created,use "show"
+drop index bookid_2 on activity1;//used to drop extra index created when multiple times unique key is created
+
+alter table books 
+ADD
+primary key(bookid);
+
+alter table books 
+drop
+primary key;// sometimes after deletion also it will show erorr
+
+senario1
+select userid,returndate,count(bookid)
+from activity
+group by returndate,userid;

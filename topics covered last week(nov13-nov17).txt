@@ -1,0 +1,11 @@
+Topics covered from November 13 to November 17
+
+Topic          : C programming.
+Classes held by: Mr.Raghuveer.
+Description    : 
+*PPT presentation by Vishak and Sowmya on Descriptive statistics and matrices.
+*Raghuveer sir tought basic concepts of trignometry.
+*assignment to write C program for matrix addition,matrix multiplication,Barchart and inverse of a given matrix.
+*Raghuveer sir personally asked everyones problems and difficulties,than he gave solution for those problems.
+*assignments on set theory concepts for me.
+ 

@@ -1,0 +1,24 @@
+1)create account for appdynamics
+2)sigin for free trial
+3)choose saas to work on cloud,choose on-primises to work in localhost
+4)select anyone option in step 3 and click on "launch appdynamics"
+5)follow steps in home menu, in appdynamics
+6)first select agent eg:java
+7)second follow 6 steps in present page
+	*Check your Java Prerequisites
+	* JVM
+	* Configure
+	* Download the Agent Installer
+	*Install the App Agent
+		1)Unzip the Java Agent
+		2)Edit the startup script for your application server. Add the -javaagent parameter to the startup command. 
+		3)select application server-->Restart your application
+		
+	*Connect the Agent to the AppDynamics Controller
+		in command prompt:
+		*should present inside folder path where java programs are present(eg:bin) 
+			command:syntax: eg:java -javaagent:"C:\AppDynamics\agentDir\javaagent.jar"  com.main.HelloWorld
+			java -javaagent:"D:\appd_java_agent\javaagent.jar" -Dappdynamics.agent.nodeName=super_node -Dappdynamics.agent.tierName=super_tier -Dappdynamics.agent.applicationName=test <package.filename(classfile)>
+		(OR)
+		*we can also set applicationName,tierName,nodeName in agent installer folder i.e "D:\appd_java_agent" inside appd_java_agent-->conf-->controller-info.xml(in that we can edit i.e opened in notepad++ )
+			command:java -javaagent:"D:\appd_java_agent\javaagent.jar" <package.filename(classfile)>

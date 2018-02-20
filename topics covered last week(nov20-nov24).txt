@@ -1,0 +1,10 @@
+Topics covered from November 20 to November 24
+
+Topic          : C programming.
+Classes held by: Mr.Raghuveer.
+Description    : 
+*PPT presentation by Megha,Nagaraj,Ranjith on permutation,combination,electricity,graphs.
+*Raghuveer sir tought concepts of Statistics.
+*assignment to write C program for reading file,count same number of letters in a file.
+*assignment on sum of two numbers in a command line.
+ 

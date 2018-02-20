@@ -1,0 +1,19 @@
+INITILIZE
+git init
+
+STATUS
+git status
+
+COMMIT
+git add .{file name or path}
+
+git commit -m "Msg"
+
+PUSH COMMAND
+git push -u origin master
+
+ADDING NEW SOURCE CODE
+git remote add origin https://github.com/vishakhayyaji/node_web_app.git
+
+HEROKU
+heroku npm start
